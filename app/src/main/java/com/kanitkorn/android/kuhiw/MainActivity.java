@@ -5,6 +5,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,30 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        setFragment(new SupportMapFragment(), "map");
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void setFragment(Fragment fragment, String tag) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content, fragment, tag)
+                .commit();
+        if (tag.equals("map")) {
+            setMap((SupportMapFragment) fragment);
+        }
+    }
+
+    private void setMap(SupportMapFragment supportMapFragment) {
+        supportMapFragment.getMapAsync(this);
+
         buildGoogleApiClient();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -51,7 +76,8 @@ public class MainActivity extends AppCompatActivity
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                     Toast.makeText(getApplicationContext(), "GPS is disable!", Toast.LENGTH_LONG).show();
-                } else {
+                }
+                else {
                     Location currentPosition = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                     if (currentPosition != null) {
                         LatLng latLng = new LatLng(currentPosition.getLatitude(),
@@ -62,21 +88,6 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        SupportMapFragment supportMapFragment =  new SupportMapFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content, supportMapFragment, "map")
-                .commit();
-        supportMapFragment.getMapAsync(this);
     }
 
     protected synchronized void buildGoogleApiClient() {
