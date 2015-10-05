@@ -1,6 +1,8 @@
 package com.kanitkorn.android.kuhiw;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -169,6 +171,9 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_map) {
             setFragment(new SupportMapFragment(), "map");
         }
+        else if (id == R.id.nav_restaurant) {
+            changeActivity(RestaurantActivity.class);
+        }
         else if (id == R.id.nav_share) {
 
         }
@@ -176,5 +181,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void changeActivity(Class activityClass) {
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
     }
 }
