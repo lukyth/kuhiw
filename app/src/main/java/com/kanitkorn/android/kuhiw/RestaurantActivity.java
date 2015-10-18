@@ -1,8 +1,6 @@
 package com.kanitkorn.android.kuhiw;
 
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -13,7 +11,6 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 public class RestaurantActivity extends AppCompatActivity implements MenuFragment.OnFragmentInteractionListener {
 
@@ -40,16 +37,6 @@ public class RestaurantActivity extends AppCompatActivity implements MenuFragmen
         setupToolbar();
 
         setupViewPager();
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
     }
 
     private void setupViewPager() {
@@ -116,7 +103,15 @@ public class RestaurantActivity extends AppCompatActivity implements MenuFragmen
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a MenuFragment.
-            return MenuFragment.newInstance("20");
+            switch (position) {
+                case 0:
+                    return MenuFragment.newInstance();
+                case 1:
+                    return MenuFragment.newInstance();
+                case 2:
+                    return MenuFragment.newInstance();
+            }
+            return null;
         }
 
         @Override
@@ -129,11 +124,11 @@ public class RestaurantActivity extends AppCompatActivity implements MenuFragmen
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "ABOUT";
                 case 1:
-                    return "SECTION 2";
+                    return "MENU";
                 case 2:
-                    return "SECTION 3";
+                    return "COMMENT";
             }
             return null;
         }
