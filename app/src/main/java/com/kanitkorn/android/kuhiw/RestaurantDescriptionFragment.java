@@ -72,6 +72,7 @@ public class RestaurantDescriptionFragment extends Fragment {
             case "ร้านบะหมี่":
                 description.setText("มีบะหมี่หมูแดง ต้มยำ เย็นตาโฟ ; เมนูเส้น บะหมี่ บะหมี่แบน บะหมี่หยก เส้นเล็ก เส้นใหญ่ วุ้นเส้น มาม่า เส้นหมี่ หมี่กรอบ");
                 tags.setText("ก๋วยเตี๋ยว บะหมี่ ตามสั่ง มาม่า น้ำตก เย็นตาโฟ เกาเหลา หมูแดง หมูกรอบ");
+                break;
         }
     }
 }

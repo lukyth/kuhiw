@@ -107,7 +107,7 @@ public class RestaurantActivity extends AppCompatActivity {
                 case 0:
                     return RestaurantDescriptionFragment.newInstance(title);
                 case 1:
-                    return MenuFragment.newInstance();
+                    return MenuFragment.newInstance(title);
             }
             return null;
         }
