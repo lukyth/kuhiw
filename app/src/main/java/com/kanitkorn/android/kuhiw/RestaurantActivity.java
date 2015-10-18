@@ -105,11 +105,11 @@ public class RestaurantActivity extends AppCompatActivity implements MenuFragmen
             // Return a MenuFragment.
             switch (position) {
                 case 0:
-                    return MenuFragment.newInstance();
+                    return RestaurantDescriptionFragment.newInstance();
                 case 1:
                     return MenuFragment.newInstance();
                 case 2:
-                    return MenuFragment.newInstance();
+                    return RestaurantCommentFragment.newInstance();
             }
             return null;
         }
