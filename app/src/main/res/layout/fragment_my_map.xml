@@ -22,22 +22,23 @@
         android:layout_alignWithParentIfMissing="true"
         android:layout_margin="@dimen/fab_margin"
         android:animateLayoutChanges="true"
-        app:backgroundTint="#fff"
-        android:src="@drawable/mylocation" />
+        android:src="@drawable/mylocation"
+        app:backgroundTint="#fff" />
 
     <RelativeLayout
         android:id="@+id/place_info_box"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:animateLayoutChanges="true"
+        android:clipToPadding="false"
+        android:paddingTop="36dp"
         android:visibility="gone">
 
         <LinearLayout
             android:id="@+id/place_description_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:background="#fff"
             android:elevation="16dp"
             android:orientation="vertical"
@@ -66,10 +67,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
             android:layout_marginRight="16dp"
+            android:layout_marginTop="-32dp"
             android:src="@drawable/forward"
-            app:elevation="16dp" />
+            app:elevation="17dp" />
 
     </RelativeLayout>
 
