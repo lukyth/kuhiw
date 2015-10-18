@@ -27,38 +27,18 @@
             android:paddingTop="20dp">
 
             <TextView
-                android:id="@+id/tag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="4dp"
                 android:text="Tags"
                 android:textSize="20sp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tags"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:paddingBottom="4dp"
-                android:paddingTop="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="12dp"
-                    android:text="Tag1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="12dp"
-                    android:text="Tag2" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="12dp"
-                    android:text="Tag3" />
-            </LinearLayout>
+                android:paddingTop="4dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,25 +54,19 @@
             android:paddingTop="20dp">
 
             <TextView
-                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="4dp"
                 android:text="Description"
                 android:textSize="20sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:paddingBottom="4dp"
-                android:paddingTop="4dp">
+                android:paddingTop="4dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Curabitur eu est id purus laoreet egestas. Cras congue euismod neque, quis rhoncus augue vestibulum et. Sed aliquet tristique ante, ut pharetra lorem lacinia sed. Suspendisse viverra faucibus tincidunt. Nullam congue ipsum suscipit libero vehicula, tincidunt blandit tellus mollis. In sit amet tempor urna. Aenean eu ante ut enim tincidunt ultrices. Ut commodo maximus mauris, ac tempus quam pharetra vitae. Proin eleifend est egestas libero vehicula, ac scelerisque justo eleifend." />
-            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

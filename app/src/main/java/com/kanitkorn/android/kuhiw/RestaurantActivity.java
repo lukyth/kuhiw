@@ -24,6 +24,8 @@ public class RestaurantActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
+    private String title;
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -32,6 +34,9 @@ public class RestaurantActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        title = getIntent().getStringExtra("title");
+
         setContentView(R.layout.activity_restaurant);
 
         setupToolbar();
@@ -100,7 +105,7 @@ public class RestaurantActivity extends AppCompatActivity {
             // Return a MenuFragment.
             switch (position) {
                 case 0:
-                    return RestaurantDescriptionFragment.newInstance();
+                    return RestaurantDescriptionFragment.newInstance(title);
                 case 1:
                     return MenuFragment.newInstance();
             }

@@ -112,20 +112,35 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng iup = new LatLng(13.846445, 100.569928);
+        LatLng startPlace = new LatLng(13.846302, 100.569925);
 
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
 
         mMap.addMarker(new MarkerOptions()
-                .title("IUP Kasetsart University")
-                .snippet("So many cute girl here")
-                .position(iup));
+                .title("ร้านก๋วยเตี๋ยวหมูน้ำตก")
+                .snippet("มีเส้นเล็ก เส้นใหญ่ วุ้นเส้น หมี่ขาว บะหมี่ มีหมูสด หมูตุ๋น หมูแดง ตับ ลูกชิ้นปลา ลูกชิ้นหมู เพิ่มน่องไก่ 15 บาท")
+                .position(startPlace));
 
         mMap.addMarker(new MarkerOptions()
-                .title("Museam")
-                .snippet("Second place")
-                .position(new LatLng(13.8462498,100.5691272)));
+                .title("ร้านข้าวไข่เจียว")
+                .snippet("ไข่เจียวทรงเครื่อง (เลือกได้ 3 อย่าง) กับข้าวมีดังนี้ หมูหวาน ไก่แซ่บ ไก่กรอบ แกงเขียวหวาน ไส้กรอก แกงส้ม รับทำอาหารกล่อง")
+                .position(new LatLng(13.846302, 100.569911)));
+
+        mMap.addMarker(new MarkerOptions()
+                .title("ร้านข้าวราดแกง")
+                .snippet("กับข้าว 1 อย่าง 25 2 อย่าง 30")
+                .position(new LatLng(13.846302, 100.569897)));
+
+        mMap.addMarker(new MarkerOptions()
+                .title("ร้านอาหารญี่ปุ่น")
+                .snippet("ราเมน แกงกะหรี่ ทงคัตสึ ซุปสาหร่าย ไก่เทอริยากิ ยากิโซบะ")
+                .position(new LatLng(13.846302, 100.569883)));
+
+        mMap.addMarker(new MarkerOptions()
+                .title("ร้านบะหมี่")
+                .snippet("มีบะหมี่หมูแดง ต้มยำ เย็นตาโฟ ; เมนูเส้น บะหมี่ บะหมี่แบน บะหมี่หยก เส้นเล็ก เส้นใหญ่ วุ้นเส้น มาม่า เส้นหมี่ หมี่กรอบ")
+                .position(new LatLng(13.846302, 100.569869)));
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
 
@@ -150,7 +165,7 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
             }
         });
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(iup, 19));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPlace, 22));
     }
 
     protected synchronized void buildGoogleApiClient() {
