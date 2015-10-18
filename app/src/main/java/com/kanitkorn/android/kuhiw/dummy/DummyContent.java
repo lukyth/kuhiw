@@ -26,7 +26,7 @@ public class DummyContent {
     static {
         for (int i = 1; i <= 20; i++) {
             String id = Integer.toString(i);
-            addItem(new DummyItem(id, "Item " + id));
+            addItem(new DummyItem(id, "Menu " + id));
         }
     }
 
