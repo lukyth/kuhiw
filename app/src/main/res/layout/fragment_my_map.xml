@@ -22,7 +22,8 @@
         android:layout_alignWithParentIfMissing="true"
         android:layout_margin="@dimen/fab_margin"
         android:animateLayoutChanges="true"
-        android:src="@android:drawable/ic_menu_mylocation" />
+        app:backgroundTint="#fff"
+        android:src="@drawable/mylocation" />
 
     <RelativeLayout
         android:id="@+id/place_info_box"
@@ -67,7 +68,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="16dp"
-            android:src="@android:drawable/ic_menu_more"
+            android:src="@drawable/forward"
             app:elevation="16dp" />
 
     </RelativeLayout>
