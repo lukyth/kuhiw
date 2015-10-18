@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class RestaurantActivity extends AppCompatActivity implements MenuFragment.OnFragmentInteractionListener {
+public class RestaurantActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -60,11 +60,6 @@ public class RestaurantActivity extends AppCompatActivity implements MenuFragmen
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    @Override
-    public void onFragmentInteraction(String id) {
-
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -108,16 +103,14 @@ public class RestaurantActivity extends AppCompatActivity implements MenuFragmen
                     return RestaurantDescriptionFragment.newInstance();
                 case 1:
                     return MenuFragment.newInstance();
-                case 2:
-                    return RestaurantCommentFragment.newInstance();
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 2 total pages.
+            return 2;
         }
 
         @Override
@@ -127,8 +120,6 @@ public class RestaurantActivity extends AppCompatActivity implements MenuFragmen
                     return "ABOUT";
                 case 1:
                     return "MENU";
-                case 2:
-                    return "COMMENT";
             }
             return null;
         }
