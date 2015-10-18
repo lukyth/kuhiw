@@ -2,6 +2,7 @@ package com.kanitkorn.android.kuhiw;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -20,6 +22,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MyMapFragment extends SupportMapFragment implements GoogleApiClient.ConnectionCallbacks,
@@ -28,12 +31,15 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
     private GoogleMap mMap;
     private GoogleApiClient mGoogleApiClient;
 
+    private TextView title;
+    private TextView description;
+    private View view;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         buildGoogleApiClient();
-
     }
 
     @Override
@@ -48,7 +54,25 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
     public void onActivityCreated(Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
+
+        view = getView();
+
         setupMap();
+
+        title = (TextView) view.findViewById(R.id.place_title);
+        description = (TextView) view.findViewById(R.id.place_description);
+
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_place);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), RestaurantActivity.class);
+                intent.putExtra("title", title.getText());
+                intent.putExtra("description", description.getText());
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void setupMap() {
@@ -60,7 +84,7 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
         mapFragment.getMapAsync(this);
 
         assert getView() != null;
-        FloatingActionButton fab = (FloatingActionButton) getView().findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +117,23 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
                 .title("IUP Kasetsart University")
                 .snippet("So many cute girl here")
                 .position(iup));
+
+        mMap.addMarker(new MarkerOptions()
+                .title("Museam")
+                .snippet("Second place")
+                .position(new LatLng(13.8462498,100.5691272)));
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                title.setText(marker.getTitle());
+                description.setText(marker.getSnippet());
+                return true;
+            }
+
+        });
+
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(iup, 19));
     }
 
