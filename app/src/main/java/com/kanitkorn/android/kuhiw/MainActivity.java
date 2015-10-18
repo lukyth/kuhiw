@@ -1,13 +1,8 @@
 package com.kanitkorn.android.kuhiw;
 
-import android.content.Context;
 import android.content.Intent;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,25 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback,
-        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
-
-    private GoogleMap mMap;
-    private GoogleApiClient mGoogleApiClient;
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +22,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        buildGoogleApiClient();
-
-        setFragment(new SupportMapFragment(), "map");
+        setFragment(new MyMapFragment(), "map");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -61,72 +38,6 @@ public class MainActivity extends AppCompatActivity
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content, fragment, tag)
                 .commit();
-        if (tag.equals("map")) {
-            setMap((SupportMapFragment) fragment);
-        }
-    }
-
-    private void setMap(SupportMapFragment supportMapFragment) {
-        supportMapFragment.getMapAsync(this);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                    Toast.makeText(getApplicationContext(), "GPS is disable!", Toast.LENGTH_LONG).show();
-                } else {
-                    Location currentPosition = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-                    if (currentPosition != null) {
-                        LatLng latLng = new LatLng(currentPosition.getLatitude(),
-                                currentPosition.getLongitude());
-                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 19);
-                        mMap.animateCamera(cameraUpdate);
-                    }
-                }
-            }
-        });
-    }
-
-    protected synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-        mGoogleApiClient.connect();
-    }
-
-    @Override
-    public void onConnectionSuspended(int arg0) {
-
-    }
-
-    @Override
-    public void onConnected(Bundle connectionHint) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        LatLng iup = new LatLng(13.846445, 100.569928);
-
-        mMap.setMyLocationEnabled(true);
-        mMap.getUiSettings().setMyLocationButtonEnabled(false);
-
-        mMap.addMarker(new MarkerOptions()
-                .title("IUP Kasetsart University")
-                .snippet("So many cute girl here")
-                .position(iup));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(iup, 19));
     }
 
     @Override
@@ -168,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_map) {
-            setFragment(new SupportMapFragment(), "map");
+            setFragment(new MyMapFragment(), "map");
         }
         else if (id == R.id.nav_restaurant) {
             changeActivity(RestaurantActivity.class);
