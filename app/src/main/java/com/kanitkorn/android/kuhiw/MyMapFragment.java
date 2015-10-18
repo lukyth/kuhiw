@@ -10,6 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
     private TextView title;
     private TextView description;
     private View view;
+    private RelativeLayout pdb;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,8 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
 
         title = (TextView) view.findViewById(R.id.place_title);
         description = (TextView) view.findViewById(R.id.place_description);
+
+        pdb = (RelativeLayout) view.findViewById(R.id.place_info_box);
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_place);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -129,9 +133,21 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
             public boolean onMarkerClick(Marker marker) {
                 title.setText(marker.getTitle());
                 description.setText(marker.getSnippet());
+                if (pdb.getVisibility() == View.GONE) {
+                    pdb.setVisibility(View.VISIBLE);
+                }
                 return true;
             }
 
+        });
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng point) {
+                if (pdb.getVisibility() == View.VISIBLE) {
+                    pdb.setVisibility(View.GONE);
+                }
+            }
         });
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(iup, 19));
@@ -160,5 +176,4 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
-
 }
