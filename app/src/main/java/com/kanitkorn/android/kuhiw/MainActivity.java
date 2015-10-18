@@ -1,6 +1,5 @@
 package com.kanitkorn.android.kuhiw;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
@@ -19,10 +18,17 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        setToolbar();
 
         setFragment(new MyMapFragment(), "map");
+    }
+
+    private void setToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setTitle("KUHiw");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -81,20 +87,9 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_map) {
             setFragment(new MyMapFragment(), "map");
         }
-        else if (id == R.id.nav_restaurant) {
-            changeActivity(RestaurantActivity.class);
-        }
-        else if (id == R.id.nav_share) {
-
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    public void changeActivity(Class activityClass) {
-        Intent intent = new Intent(this, activityClass);
-        startActivity(intent);
     }
 }
