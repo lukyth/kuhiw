@@ -11,8 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.kanitkorn.android.kuhiw.dummy.DummyContent;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, RestaurantFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity
 
         setToolbar();
 
-        setFragment(new MyMapFragment(), "map");
+        setFragment(new RestaurantFragment(), "restaurant_list");
     }
 
     private void setToolbar() {
@@ -84,12 +86,19 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_map) {
+        if (id == R.id.nav_restaurant_list) {
+            setFragment(new RestaurantFragment(), "restaurant_list");
+        }
+        else if (id == R.id.nav_map) {
             setFragment(new MyMapFragment(), "map");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
     }
 }
