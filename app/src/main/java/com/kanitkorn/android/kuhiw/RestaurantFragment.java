@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kanitkorn.android.kuhiw.dummy.DummyContent;
-import com.kanitkorn.android.kuhiw.dummy.DummyContent.DummyItem;
+import com.kanitkorn.android.kuhiw.Restaurant;
+import com.kanitkorn.android.kuhiw.Restaurant.RestaurantItem;
 
 
 /**
@@ -68,7 +68,7 @@ public class RestaurantFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyRestaurantRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyRestaurantRecyclerViewAdapter(Restaurant.ITEMS, mListener));
         }
         return view;
     }
@@ -103,6 +103,6 @@ public class RestaurantFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(RestaurantItem item);
     }
 }
