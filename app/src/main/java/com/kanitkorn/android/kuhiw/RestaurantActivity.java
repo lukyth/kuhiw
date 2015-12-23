@@ -108,16 +108,16 @@ public class RestaurantActivity extends AppCompatActivity {
                     return RestaurantDescriptionFragment.newInstance(title);
                 case 1:
                     return MenuFragment.newInstance(title);
-//                case 2:
-//                    return RestaurantCommentFragment.newInstance(title);
+                case 2:
+                    return RestaurantCommentFragment.newInstance(title);
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            // Show 2 total pages.
-            return 2;
+            // Show 3 total pages.
+            return 3;
         }
 
         @Override
@@ -127,8 +127,8 @@ public class RestaurantActivity extends AppCompatActivity {
                     return "ABOUT";
                 case 1:
                     return "MENU";
-//                case 2:
-//                    return "COMMENT";
+                case 2:
+                    return "COMMENT";
             }
             return null;
         }
