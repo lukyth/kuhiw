@@ -1,5 +1,6 @@
 package com.kanitkorn.android.kuhiw;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
@@ -99,6 +100,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onListFragmentInteraction(Restaurant.RestaurantItem item) {
-
+        Intent intent = new Intent(this, RestaurantActivity.class);
+        intent.putExtra("title", item.title);
+        intent.putExtra("description", item.description);
+        startActivity(intent);
     }
 }

@@ -49,15 +49,6 @@ public class Restaurant {
         return new RestaurantItem(String.valueOf(position), "ร้านบะหมี่", "มีบะหมี่หมูแดง ต้มยำ เย็นตาโฟ ; เมนูเส้น บะหมี่ บะหมี่แบน บะหมี่หยก เส้นเล็ก เส้นใหญ่ วุ้นเส้น มาม่า เส้นหมี่ หมี่กรอบ");
     }
 
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
-    }
-
     /**
      * A dummy item representing a piece of content.
      */
