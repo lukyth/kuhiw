@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kanitkorn.android.kuhiw.Restaurant;
 import com.kanitkorn.android.kuhiw.Restaurant.RestaurantItem;
 
 

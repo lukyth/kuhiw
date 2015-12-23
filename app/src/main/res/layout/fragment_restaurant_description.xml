@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     tools:context="com.kanitkorn.android.kuhiw.RestaurantDescriptionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -68,6 +67,7 @@
                 android:paddingTop="4dp" />
 
         </LinearLayout>
+
 
     </LinearLayout>
 

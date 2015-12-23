@@ -118,28 +118,28 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
 
         mMap.addMarker(new MarkerOptions()
-                .title("ร้านก๋วยเตี๋ยวหมูน้ำตก")
-                .snippet("มีเส้นเล็ก เส้นใหญ่ วุ้นเส้น หมี่ขาว บะหมี่ มีหมูสด หมูตุ๋น หมูแดง ตับ ลูกชิ้นปลา ลูกชิ้นหมู เพิ่มน่องไก่ 15 บาท")
+                .title(getString(R.string.restaurant1_name))
+                .snippet(getString(R.string.restaurant1_description))
                 .position(startPlace));
 
         mMap.addMarker(new MarkerOptions()
-                .title("ร้านข้าวไข่เจียว")
-                .snippet("ไข่เจียวทรงเครื่อง (เลือกได้ 3 อย่าง) กับข้าวมีดังนี้ หมูหวาน ไก่แซ่บ ไก่กรอบ แกงเขียวหวาน ไส้กรอก แกงส้ม รับทำอาหารกล่อง")
+                .title(getString(R.string.restaurant2_name))
+                .snippet(getString(R.string.restaurant2_description))
                 .position(new LatLng(13.846302, 100.569911)));
 
         mMap.addMarker(new MarkerOptions()
-                .title("ร้านข้าวราดแกง")
-                .snippet("กับข้าว 1 อย่าง 25 2 อย่าง 30")
+                .title(getString(R.string.restaurant3_name))
+                .snippet(getString(R.string.restaurant3_description))
                 .position(new LatLng(13.846302, 100.569897)));
 
         mMap.addMarker(new MarkerOptions()
-                .title("ร้านอาหารญี่ปุ่น")
-                .snippet("ราเมน แกงกะหรี่ ทงคัตสึ ซุปสาหร่าย ไก่เทอริยากิ ยากิโซบะ")
+                .title(getString(R.string.restaurant4_name))
+                .snippet(getString(R.string.restaurant4_description))
                 .position(new LatLng(13.846302, 100.569883)));
 
         mMap.addMarker(new MarkerOptions()
-                .title("ร้านบะหมี่")
-                .snippet("มีบะหมี่หมูแดง ต้มยำ เย็นตาโฟ ; เมนูเส้น บะหมี่ บะหมี่แบน บะหมี่หยก เส้นเล็ก เส้นใหญ่ วุ้นเส้น มาม่า เส้นหมี่ หมี่กรอบ")
+                .title(getString(R.string.restaurant5_name))
+                .snippet(getString(R.string.restaurant5_description))
                 .position(new LatLng(13.846302, 100.569869)));
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {

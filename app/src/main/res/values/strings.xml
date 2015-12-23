@@ -11,4 +11,24 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="restaurant1_name">ร้านก๋วยเตี๋ยวหมูน้ำตก</string>
+    <string name="restaurant1_description">มีเส้นเล็ก เส้นใหญ่ วุ้นเส้น หมี่ขาว บะหมี่ มีหมูสด หมูตุ๋น หมูแดง ตับ ลูกชิ้นปลา ลูกชิ้นหมู เพิ่มน่องไก่ 15 บาท</string>
+    <string name="restaurant1_tag">ก๋วยเตี๋ยว บะหมี่ ตามสั่ง มาม่า น้ำตก เย็นตาโฟ เกาเหลา</string>
+
+    <string name="restaurant2_name">ร้านข้าวไข่เจียว</string>
+    <string name="restaurant2_description">ไข่เจียวทรงเครื่อง (เลือกได้ 3 อย่าง) กับข้าวมีดังนี้ หมูหวาน ไก่แซ่บ ไก่กรอบ แกงเขียวหวาน ไส้กรอก แกงส้ม รับทำอาหารกล่อง</string>
+    <string name="restaurant2_tag">ไข่เจียว ข้าวราดแกง ข้าว</string>
+
+    <string name="restaurant3_name">ร้านข้าวราดแกง</string>
+    <string name="restaurant3_description">กับข้าว 1 อย่าง 25 2 อย่าง 30</string>
+    <string name="restaurant3_tag">ข้าวราดแกง</string>
+
+    <string name="restaurant4_name">ร้านอาหารญี่ปุ่น</string>
+    <string name="restaurant4_description">ราเมน แกงกะหรี่ ทงคัตสึ ซุปสาหร่าย ไก่เทอริยากิ ยากิโซบะ</string>
+    <string name="restaurant4_tag">ก๋วยเตี๋ยว อาหารญี่ปุ่น ตามสั่ง ทะเล</string>
+
+    <string name="restaurant5_name">ร้านบะหมี่</string>
+    <string name="restaurant5_description">มีบะหมี่หมูแดง ต้มยำ เย็นตาโฟ ; เมนูเส้น บะหมี่ บะหมี่แบน บะหมี่หยก เส้นเล็ก เส้นใหญ่ วุ้นเส้น มาม่า เส้นหมี่ หมี่กรอบ</string>
+    <string name="restaurant5_tag">ก๋วยเตี๋ยว บะหมี่ ตามสั่ง มาม่า น้ำตก เย็นตาโฟ เกาเหลา หมูแดง หมูกรอบ</string>
+
 </resources>
