@@ -14,14 +14,30 @@ import android.view.ViewGroup;
 public class RestaurantCommentFragment extends Fragment {
 
 
-    public static RestaurantCommentFragment newInstance() {
-        return new RestaurantCommentFragment();
+    private static final String ARG_PARAM1 = "param1";
+
+    private String mParam1;
+
+    public static RestaurantCommentFragment newInstance(String param1) {
+        RestaurantCommentFragment fragment = new RestaurantCommentFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public RestaurantCommentFragment() {
-        super();
+
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,5 +46,9 @@ public class RestaurantCommentFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_restaurant_comment, container, false);
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
 
 }

@@ -108,6 +108,8 @@ public class RestaurantActivity extends AppCompatActivity {
                     return RestaurantDescriptionFragment.newInstance(title);
                 case 1:
                     return MenuFragment.newInstance(title);
+//                case 2:
+//                    return RestaurantCommentFragment.newInstance(title);
             }
             return null;
         }
@@ -125,6 +127,8 @@ public class RestaurantActivity extends AppCompatActivity {
                     return "ABOUT";
                 case 1:
                     return "MENU";
+//                case 2:
+//                    return "COMMENT";
             }
             return null;
         }
