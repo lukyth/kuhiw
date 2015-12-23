@@ -96,13 +96,13 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
                 if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                     Toast.makeText(activity, "GPS is disable!", Toast.LENGTH_LONG).show();
                 } else {
-                    Location currentPosition = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-                    if (currentPosition != null) {
-                        LatLng latLng = new LatLng(currentPosition.getLatitude(),
-                                currentPosition.getLongitude());
-                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 19);
-                        mMap.animateCamera(cameraUpdate);
-                    }
+//                    Location currentPosition = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+//                    if (currentPosition != null) {
+//                        LatLng latLng = new LatLng(currentPosition.getLatitude(),
+//                                currentPosition.getLongitude());
+//                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 19);
+//                        mMap.animateCamera(cameraUpdate);
+//                    }
                 }
             }
         });
@@ -114,7 +114,7 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
 
         LatLng startPlace = new LatLng(13.846302, 100.569925);
 
-        mMap.setMyLocationEnabled(true);
+//        mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
 
         mMap.addMarker(new MarkerOptions()

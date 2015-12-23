@@ -68,5 +68,13 @@ public class RestaurantDescriptionFragment extends Fragment {
             description.setText(getString(R.string.restaurant5_description));
             tags.setText(getString(R.string.restaurant5_tag));
         }
+
+        setFragment(RestaurantDescriptionMapFragment.newInstance(mParam1), "restaurant_description_map");
+    }
+
+    private void setFragment(Fragment fragment, String tag) {
+        getChildFragmentManager().beginTransaction()
+                .replace(R.id.description_map, fragment, tag)
+                .commit();
     }
 }
