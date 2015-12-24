@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_id": "kuhiw-23b25",
+    "project_number": "1055773809161",
+    "name": "KUHiw"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055773809161:android:532124cd22021ff4",
+        "client_id": "android:com.kanitkorn.android.kuhiw",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.kanitkorn.android.kuhiw"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055773809161-dscfniagqp2j5s4gktutld021q5ibv9b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kanitkorn.android.kuhiw",
+            "certificate_hash": "E4C09F4C36C859B028C8A6F80248DA041E0AC6B0"
+          }
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
