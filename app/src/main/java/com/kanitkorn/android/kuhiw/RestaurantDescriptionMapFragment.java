@@ -115,17 +115,17 @@ public class RestaurantDescriptionMapFragment extends SupportMapFragment impleme
                     .title(getString(R.string.restaurant2_name))
                     .snippet(getString(R.string.restaurant2_description))
                     .position(new LatLng(13.846302, 100.569911)));
-        } else if(mParam1.equals(getString(R.string.restaurant2_name))) {
+        } else if(mParam1.equals(getString(R.string.restaurant3_name))) {
             mMap.addMarker(new MarkerOptions()
                     .title(getString(R.string.restaurant3_name))
                     .snippet(getString(R.string.restaurant3_description))
                     .position(new LatLng(13.846302, 100.569897)));
-        } else if(mParam1.equals(getString(R.string.restaurant2_name))) {
+        } else if(mParam1.equals(getString(R.string.restaurant4_name))) {
             mMap.addMarker(new MarkerOptions()
                     .title(getString(R.string.restaurant4_name))
                     .snippet(getString(R.string.restaurant4_description))
                     .position(new LatLng(13.846302, 100.569883)));
-        } else if(mParam1.equals(getString(R.string.restaurant2_name))) {
+        } else if(mParam1.equals(getString(R.string.restaurant5_name))) {
             mMap.addMarker(new MarkerOptions()
                     .title(getString(R.string.restaurant5_name))
                     .snippet(getString(R.string.restaurant5_description))
